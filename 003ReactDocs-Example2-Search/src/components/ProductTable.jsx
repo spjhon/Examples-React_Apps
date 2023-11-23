@@ -58,7 +58,7 @@ console.log(products)
 
     //Este primer if lo que hace es mirar si el texto filtrado es igual al texto del nombre el producto.
 
-    // el indexof marca -1 si la palabra no esta
+    // el indexof marca -1 si la palabra no esta.
 
     // Con este for each lo que se esta haciendo es preguntar primero si el state del filtro es igual o no, y luego el state del stock
     //entonces si hay algo en el searchbox, pues se manda a renderizar solo ese producto, de lo contrario no.
@@ -70,12 +70,13 @@ console.log(products)
       return;
     }
 
-    //Filtro por stock
+    //Filtro por stock es que primero mira el propr para ver si el usuario selecciono el soloStock o no y luego transforma
+    //lo que venga en stocked para asi saber cuando utilizar el return. solamente si ambos lados son true, se omite el producto
+    //de renderizarlo.
     if (inStockOnly && !product.stocked) {
       return;
     }
 
-    //Los dos if de arriba es que si 
     if (product.category !== lastCategory) {
       rows.push(
         <ProductCategoryRow
@@ -94,7 +95,8 @@ console.log(products)
     lastCategory = product.category;
   });
 
-
+//Con todo este codigo se tiene en cuenta cuando el usuario selecciona tanto el filtro como
+//si mostrar o no lo que esta en stock.
   return (
     <table>
       <thead>

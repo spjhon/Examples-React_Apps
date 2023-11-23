@@ -19,6 +19,8 @@ export default function FilterableProductTable({ products }) {
       <SearchBar 
       filterText={filterText} 
       inStockOnly={inStockOnly} 
+      onFilterTextChange={setFilterText}
+      onInStockOnlyChange={setInStockOnly}
       />
       <ProductTable
         filterText={filterText}
